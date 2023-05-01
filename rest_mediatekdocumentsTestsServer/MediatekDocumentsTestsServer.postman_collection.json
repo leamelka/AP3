@@ -1,0 +1,709 @@
+{
+	"info": {
+		"_postman_id": "2ed0500a-6751-433b-900f-c94d3acfcec5",
+		"name": "MediatekDocumentsTestsServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22263308"
+	},
+	"item": [
+		{
+			"name": "Récupération de la liste des abonnements d'une revue - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des abonnements d'une revue\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"00003\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"00029\",\r\n    \"isbn\": \"TEST\",\r\n    \"auteur\": \"sam\",\r\n    \"collection\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/abonnement/10001",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"abonnement",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération de la liste des dvd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des dvd\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"20003\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/dvd",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"dvd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération d'un utilisateur selon son identifiant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération d'un utilisateur\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].login).to.eql(\"CharlotteOFraise\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/utilisateur/CharlotteOFraise",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"utilisateur",
+						"CharlotteOFraise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération des livres -  Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste de livres\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"00028\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followAuthorizationHeader": true,
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/livre",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"livre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération d'un livre selon son id - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération d'un livre spécifique'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"00001\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followAuthorizationHeader": true,
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/livre/00001",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"livre",
+						"00001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération d'un document selon son id - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération d'un document spécifique'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"20001\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/document/20001",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"document",
+						"20001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération des revues - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des revues\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"10002\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"00029\",\r\n    \"isbn\": \"TEST\",\r\n    \"auteur\": \"sam\",\r\n    \"collection\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/revue",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"revue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération des exemplaires d'une revue - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des exemplaires d'une revue\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"10001\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"00029\",\r\n    \"isbn\": \"TEST\",\r\n    \"auteur\": \"sam\",\r\n    \"collection\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/exemplaire/10001",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"exemplaire",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération des exemplaires d'un document - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des exemplaires d'un document\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"00002\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"00029\",\r\n    \"isbn\": \"TEST\",\r\n    \"auteur\": \"sam\",\r\n    \"collection\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/exemplairesdocument/00002",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"exemplairesdocument",
+						"00002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération d'une commande - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des commandes d'un document\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"00001\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"00029\",\r\n    \"isbn\": \"TEST\",\r\n    \"auteur\": \"sam\",\r\n    \"collection\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/commande/00001",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"commande",
+						"00001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération des commandes d'un document - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des commandes de document d'un document\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].id).to.eql(\"00002\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"00029\",\r\n    \"isbn\": \"TEST\",\r\n    \"auteur\": \"sam\",\r\n    \"collection\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/commandedocument/00001",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"commandedocument",
+						"00001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération des abonnements arrivant à échéance - Api en ligne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Récupération de la liste des abonnements à échéance\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"result\"][0].dateFinAbonnement).to.eql(\"2023-03-21\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followAuthorizationHeader": true,
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://mediatek-documents-dhaussy.com/abonnementsecheance",
+					"protocol": "https",
+					"host": [
+						"mediatek-documents-dhaussy",
+						"com"
+					],
+					"path": [
+						"abonnementsecheance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
